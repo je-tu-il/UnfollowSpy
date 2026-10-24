@@ -1,35 +1,82 @@
-# 👻 GhostTrack - Instagram Analyzer
+# 👻 UnfollowSpy (GhostTrack) — Instagram Analyzer
 
-**GhostTrack** est une application de bureau moderne et élégante permettant d'analyser vos abonnements Instagram. Elle identifie rapidement les personnes qui ne vous suivent pas en retour et celles que vous ne suivez pas, tout en respectant votre vie privée (tout se passe en local sur votre machine).
+[![Platforms](https://img.shields.io/badge/Platforms-Windows%20%7C%20Linux%20%7C%20macOS-blue.svg)](https://github.com/je-tu-il/UnfollowSpy/releases)
+[![Release](https://img.shields.io/github/v/release/je-tu-il/UnfollowSpy?color=success&include_prereleases)](https://github.com/je-tu-il/UnfollowSpy/releases/latest)
+[![Privacy 100%](https://img.shields.io/badge/Security-100%25%20Offline%20%26%20Private-brightgreen.svg)](README.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+> Analysez vos abonnements et abonnés Instagram **sans jamais renseigner votre mot de passe**.  
+> Découvrez instantanément qui ne vous suit pas en retour et qui vous ne suivez pas, avec gestion de Whitelist (célébrités / marques), recherche en direct et export CSV.
 
-## ✨ Fonctionnalités
+---
 
-* **🕵️ Analyse croisée :**
-    * Voir qui ne vous suit pas en retour ("Ghost followers").
-    * Voir qui vous ne suivez pas en retour ("Fans").
-* **🎨 Interface Moderne :** Thème sombre (Dark Mode) natif grâce à `sv_ttk`.
-* **📂 Compatible :** Supporte les formats d'export Instagram **HTML** et **JSON**.
-* **🛡️ Whitelist (Liste Blanche) :** Possibilité d'ignorer certains comptes (célébrités, marques) via un clic-droit. La liste est sauvegardée automatiquement.
-* **💾 Export CSV :** Sauvegardez vos listes de résultats pour les traiter ailleurs.
-* **🔍 Recherche instantanée :** Filtrez les résultats en temps réel.
-* **📊 Statistiques :** Affichage clair du nombre d'abonnés et d'abonnements.
+## ⚡ Téléchargement 1-Clic (Sans Python)
 
+Exécutables autonomes prêts à l'emploi :
 
-## 📥 Comment récupérer vos données Instagram ?
+👉 **[Télécharger la dernière version (Windows, Linux, macOS)](https://github.com/je-tu-il/UnfollowSpy/releases/latest)**
 
-Pour utiliser GhostTrack, vous devez demander vos données à Instagram (c'est la méthode officielle et sécurisée, sans donner votre mot de passe à un bot).
+| Plateforme | Fichier à télécharger |
+| :--- | :--- |
+| **Windows (x64)** | `UnfollowSpy-windows-x64.exe` (exécutable direct) |
+| **Linux (x64)** | `UnfollowSpy-linux-x64` |
+| **macOS** | `UnfollowSpy-macos` |
 
-1.  Allez sur l'application Instagram ou sur le site web.
-2.  Paramètres et confidentialité > **Votre activité**.
-3.  Cherchez **"Télécharger vos informations"**.
-4.  Cliquez sur "Demander un téléchargement".
-5.  Sélectionnez **"Sélectionner les types d'informations"** (pas la copie complète, c'est trop long).
-6.  Cochez uniquement **"Abonnés et abonnements"**.
-7.  Format : Choisissez **HTML** ou **JSON** (les deux fonctionnent).
-8.  Une fois le mail reçu (cela prend quelques minutes), téléchargez le ZIP et extrayez-le.
-9.  Dans GhostTrack, sélectionnez les fichiers `followers_1.html` (ou .json) et `following.html` (ou .json).
+---
 
+## 🔒 100% Sécurisé & Sans Risque de Ban
 
-## 🖼️ Aperçu
-<img width="1002" height="882" alt="Capture d&#39;écran 2025-11-23 213504" src="https://github.com/user-attachments/assets/19a76d7c-7548-4f0d-b559-26ffc2b2de7a" />
+Contrairement aux applications tierces douteuses :
+- ❌ **Aucun identifiant ni mot de passe demandé.**
+- ❌ **Aucune requête réseau vers Instagram (aucun risque de blocage ou shadowban).**
+- ✅ **Traitement 100% local sur votre machine** à partir de votre archive officielle Instagram.
+
+---
+
+## 📖 Guide Débutant : Comment récupérer ses fichiers Instagram ?
+
+1. Sur Instagram (application mobile ou web), allez dans **Paramètres** ⚙️.
+2. Cliquez sur **Espace Comptes** > **Vos informations et autorisations**.
+3. Sélectionnez **Télécharger vos informations** > **Télécharger ou transférer des informations**.
+4. Choisissez votre compte, puis sélectionnez **Certaines de vos informations**.
+5. Cochez uniquement **Abonnés et abonnements**.
+6. Choisissez le format (**JSON** ou **HTML** — les deux sont supportés) et lancez la demande.
+7. Une fois l'archive reçue et décompressée, ouvrez **UnfollowSpy** et sélectionnez :
+   - Fichier Followers : `followers_1.json` (ou `.html`)
+   - Fichier Following : `following.json` (ou `.html`)
+8. Cliquez sur **🚀 LANCER L'ANALYSE COMPLÈTE** !
+
+---
+
+## ✨ Fonctionnalités Clés
+
+- 🕵️ **Double Onglet d'Analyse** :
+  - *Ils ne me suivent pas* : comptes que vous suivez mais qui ne vous suivent pas.
+  - *Je ne suis pas en retour* : personnes abonnées à votre compte que vous ne suivez pas.
+- 🛡️ **Système de Whitelist Intelligent** :
+  - Ignorez vos créateurs, célébrités ou comptes d'actualité favoris pour ne pas polluer votre liste.
+  - Sauvegarde automatique dans `whitelist.txt`.
+- 🖱️ **Actions Clic Droit** :
+  - Ouvrir directement le profil Instagram dans le navigateur.
+  - Copier le pseudo en 1 clic.
+  - Ajouter à la Whitelist instantanément.
+- 🔍 **Recherche et Filtrage en Temps Réel** : Trouvez un compte en tapant les premières lettres.
+- 💾 **Exportation CSV** : Exportez la liste filtrée pour archivage ou suivi tableur.
+- 🌙 **Interface Sombre Moderne** : Thème sombre natif avec `sv-ttk`.
+
+---
+
+## 🛠️ Lancement pour Développeurs (Code Source)
+
+```bash
+git clone https://github.com/je-tu-il/UnfollowSpy.git
+cd UnfollowSpy
+pip install -r requirements.txt
+python main.py
+```
+
+---
+
+## 📄 Licence
+
+Ce projet est distribué sous licence MIT. Libre d'utilisation et d'adaptation.
