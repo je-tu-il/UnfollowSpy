@@ -114,7 +114,7 @@ class InstaAnalyzerApp(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title("UnfollowSpy (GhostTrack) — Instagram Analyzer")
+        self.title("UnfollowSpy · Comparer les abonnements")
         self.geometry("1000x850")
         self.minsize(900, 700)
 
@@ -144,7 +144,7 @@ class InstaAnalyzerApp(tk.Tk):
     def configure_styles(self):
         style = ttk.Style(self)
         style.configure("Treeview.Heading", font=("Segoe UI", 10, "bold"))
-        style.configure("Treeview", rowheight=30, font=("Segoe UI", 10))
+        style.configure("Treeview", rowheight=33, font=("Segoe UI", 11))
         style.configure("Action.TButton", font=("Segoe UI", 12, "bold"))
         style.configure("File.TButton", font=("Segoe UI", 9))
 
@@ -156,7 +156,7 @@ class InstaAnalyzerApp(tk.Tk):
         header_frame = ttk.Frame(main)
         header_frame.pack(fill="x", pady=(0, 20))
 
-        ttk.Label(header_frame, text="GhostTrack / UnfollowSpy", font=("Segoe UI", 22, "bold")).pack(side="left")
+        ttk.Label(header_frame, text="UnfollowSpy", font=("Segoe UI", 22, "bold")).pack(side="left")
 
         # STATISTIQUES
         stats_frame = ttk.LabelFrame(header_frame, text=" Statistiques ", padding=(15, 5))
@@ -164,17 +164,17 @@ class InstaAnalyzerApp(tk.Tk):
         ttk.Label(stats_frame, textvariable=self.stats_var, font=("Segoe UI", 11, "bold"), foreground="#00d1b2").pack()
 
         # IMPORTATION
-        files_frame = ttk.LabelFrame(main, text=" 1. Importation des fichiers Instagram (JSON ou HTML) ", padding=15)
+        files_frame = ttk.LabelFrame(main, text=" Fichiers d’export Instagram (JSON ou HTML) ", padding=15)
         files_frame.pack(fill="x", pady=(0, 20))
         files_frame.columnconfigure(1, weight=1)
 
-        ttk.Label(files_frame, text="Fichier Followers :").grid(row=0, column=0, sticky="w", padx=(0, 10))
+        ttk.Label(files_frame, text="Abonnés :").grid(row=0, column=0, sticky="w", padx=(0, 10))
         ttk.Entry(files_frame, textvariable=self.path_followers).grid(row=0, column=1, sticky="ew", padx=5, ipady=3)
         ttk.Button(files_frame, text="📁 Parcourir", style="File.TButton", command=self.select_followers).grid(
             row=0, column=2, padx=(5, 0), ipadx=10
         )
 
-        ttk.Label(files_frame, text="Fichier Following :").grid(row=1, column=0, sticky="w", padx=(0, 10), pady=(10, 0))
+        ttk.Label(files_frame, text="Abonnements :").grid(row=1, column=0, sticky="w", padx=(0, 10), pady=(10, 0))
         ttk.Entry(files_frame, textvariable=self.path_following).grid(
             row=1, column=1, sticky="ew", padx=5, pady=(10, 0), ipady=3
         )
@@ -188,7 +188,7 @@ class InstaAnalyzerApp(tk.Tk):
 
         self.btn_run = ttk.Button(
             btn_frame,
-            text="🚀 LANCER L'ANALYSE COMPLÈTE",
+            text="Comparer les listes",
             style="Accent.TButton",
             cursor="hand2",
             command=self.run_analysis,
@@ -204,7 +204,7 @@ class InstaAnalyzerApp(tk.Tk):
         ttk.Label(search_frame, text="🔍 Filtrer : ").pack(side="left")
         ttk.Entry(search_frame, textvariable=self.search_var).pack(side="left", fill="x", expand=True, padx=5)
 
-        ttk.Button(tools_frame, text="🛡️ Gérer Whitelist", command=self.open_whitelist_manager).pack(side="right", padx=5)
+        ttk.Button(tools_frame, text="🛡️ Pseudos ignorés", command=self.open_whitelist_manager).pack(side="right", padx=5)
         ttk.Button(tools_frame, text="💾 Exporter CSV", command=self.export_csv).pack(side="right", padx=5)
 
         # RESULTATS
@@ -213,11 +213,11 @@ class InstaAnalyzerApp(tk.Tk):
         self.notebook.bind("<<NotebookTabChanged>>", self.on_tab_change)
 
         self.tab_nfb = ttk.Frame(self.notebook)
-        self.notebook.add(self.tab_nfb, text=" Ils ne me suivent pas ")
+        self.notebook.add(self.tab_nfb, text=" Abonnements non réciproques ")
         self.tree_nfb = self.create_tree(self.tab_nfb)
 
         self.tab_idf = ttk.Frame(self.notebook)
-        self.notebook.add(self.tab_idf, text=" Je ne suis pas en retour ")
+        self.notebook.add(self.tab_idf, text=" Abonnés que je ne suis pas ")
         self.tree_idf = self.create_tree(self.tab_idf)
 
         # STATUS BAR
@@ -402,7 +402,7 @@ class InstaAnalyzerApp(tk.Tk):
                 self.status_var.set(f"@{val} retiré de la Whitelist.")
                 self.run_analysis()
 
-        ttk.Button(frame, text="Retirer de la Whitelist", command=remove_selected).pack(fill="x")
+        ttk.Button(frame, text="Retirer de la liste", command=remove_selected).pack(fill="x")
 
     def export_csv(self):
         data = self.full_nfb_results if self.current_tab == "nfb" else self.full_idf_results
