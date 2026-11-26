@@ -1,0 +1,68 @@
+* { box-sizing: border-box; }
+:root { font-family: system-ui, "Segoe UI", sans-serif; color: #22241f; background: #f6f5f0; --paper: #fffefa; --line: #e4e2d9; --muted: #5a6058; --accent: #284d3d; --tint: #e9f0e8; }
+body { margin: 0; }
+[hidden] { display: none !important; }
+.shell { width: min(100% - 36px, 1020px); margin-inline: auto; }
+header { border-bottom: 1px solid var(--line); background: var(--paper); }
+.bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+header .bar, .dialog-head { justify-content: space-between; }
+header .bar { min-height: 70px; }
+header strong { display: flex; align-items: center; gap: 8px; letter-spacing: -.03em; }
+.mark, .avatar { width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; flex: none; }
+.mark, .primary, .toast { background: var(--accent); color: white; }
+.mark { font-size: 22px; }
+main { padding-bottom: 48px; }
+.hero { padding: clamp(36px, 7vw, 72px) 0 30px; }
+h1 { font: 500 clamp(2.9rem, 8vw, 6rem)/.94 Georgia, serif; letter-spacing: -.055em; margin: 0 0 18px; }
+h2 { font-size: 1.2rem; margin: 0 0 15px; }
+p, small, dt { color: var(--muted); }
+p { margin: 0; line-height: 1.5; }
+.panel, .stats div { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; }
+.panel { padding: clamp(15px, 3.5vw, 26px); }
+.files, .stats { display: grid; gap: 12px; }
+.files { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.files label { display: grid; gap: 5px; padding: 15px; border: 1px dashed #aebfb1; border-radius: 13px; background: #f5f8f2; font-weight: 700; }
+small { font-weight: 400; }
+button, input { font: inherit; color: inherit; }
+button, input::file-selector-button { border: 1px solid var(--line); border-radius: 9px; background: var(--paper); padding: 8px 11px; font-weight: 650; cursor: pointer; }
+button:disabled { opacity: .55; cursor: default; }
+button:hover:not(:disabled), input::file-selector-button:hover { background: var(--tint); }
+button.primary { border-color: var(--accent); background: var(--accent); color: white; padding: 10px 15px; }
+button.primary:hover:not(:disabled) { background: #35624f; }
+:focus-visible { outline: 2px solid #30684e; outline-offset: 3px; }
+input[type=file] { width: 100%; margin-top: 7px; font-size: .86rem; }
+.actions, details { margin-top: 15px; }
+details p { margin-top: 7px; }
+summary { cursor: pointer; color: var(--accent); }
+.stats { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-block: 16px; }
+.stats div { padding: 14px; }
+dt { font-size: .86rem; overflow-wrap: anywhere; }
+dd { margin: 3px 0 0; font-size: 1.7rem; font-weight: 700; }
+.switch { margin-bottom: 13px; }
+button[aria-pressed=true], .avatar { background: var(--tint); color: var(--accent); }
+button span { margin-inline-start: 3px; font-variant-numeric: tabular-nums; }
+input[type=search] { flex: 1 1 12rem; min-width: 0; border: 1px solid var(--line); border-radius: 9px; padding: 9px 11px; background: #faf9f5; }
+ul { list-style: none; margin: 12px 0; padding: 0; }
+li { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; padding: 8px 0; border-top: 1px solid var(--line); }
+.avatar { font-size: .83rem; font-weight: 750; }
+.account { flex: 1 1 9rem; overflow-wrap: anywhere; color: var(--accent); font-weight: 650; text-decoration: none; }
+a.account:hover { text-decoration: underline; }
+li button { font-size: .85rem; }
+#empty, dialog p, #legacy-form { margin-block: 12px; }
+dialog { width: min(100% - 28px, 465px); max-height: 85vh; border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: var(--paper); }
+dialog::backdrop { background: #17241e77; }
+.dialog-head h2 { margin: 0; }
+.toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); border-radius: 9px; padding: 9px 13px; }
+@media (max-width: 570px) {
+  .files { grid-template-columns: 1fr; }
+  .stats div { padding: 9px; border-radius: 12px; }
+  header button { font-size: .83rem; }
+}
+
+.folder-import { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+#open-folder { color: var(--accent); background: var(--tint); }
+.manual-label { margin: 14px 0 8px; font-size: .9rem; }
+.export-guide ol { padding-inline-start: 1.4rem; color: var(--muted); line-height: 1.55; }
+.export-guide ol li { display: list-item; border: 0; padding: 4px 0; }
+.export-guide a { color: var(--accent); }
+.export-guide code { overflow-wrap: anywhere; }

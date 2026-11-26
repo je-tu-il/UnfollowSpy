@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' file:; style-src 'self' file:; base-uri 'none'">
+<title>UnfollowSpy</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="app.js"></script>
+</head>
+<body>
+<header><div class="shell bar"><strong><span class="mark" aria-hidden="true">↔</span> UnfollowSpy</strong><button id="manage" type="button">Pseudos ignorés <span id="ignored-count">0</span></button></div></header>
+<main class="shell">
+<section class="hero"><h1>Qui vous suit<br>en retour ?</h1><p>Comparez vos abonnés et vos abonnements Instagram. Vos fichiers restent sur cet appareil.</p></section>
+<section class="panel">
+<h2>Importer vos listes</h2>
+<form id="imports">
+<div class="folder-import">
+  <button id="open-folder" type="button">Ouvrir le dossier Instagram</button>
+  <input id="export-folder" type="file" webkitdirectory multiple hidden>
+  <p id="folder-status" role="status">Les listes sont détectées automatiquement dans le dossier et ses sous-dossiers.</p>
+</div>
+<p class="manual-label">Ou choisissez les fichiers manuellement</p>
+<div class="files">
+<label>Abonnés <small>followers_1.json, followers_2.html…</small><input id="followers" type="file" multiple required accept=".html,.htm,.json"></label>
+<label>Abonnements <small>following.json ou following.html</small><input id="following" type="file" multiple required accept=".html,.htm,.json"></label>
+</div>
+<div class="bar actions"><button id="compare" class="primary">Comparer les listes</button><p id="status" role="status"></p></div>
+</form>
+<details class="export-guide">
+  <summary>Où trouver ces fichiers ?</summary>
+  <ol>
+    <li>Ouvrez <a href="https://accountscenter.instagram.com/info_and_permissions/" target="_blank" rel="noopener noreferrer">Vos informations et autorisations</a> dans l’Espace Comptes. Sur mobile, ouvrez votre profil Instagram, appuyez sur le menu ☰, puis sur <strong>Espace Comptes</strong>.</li>
+    <li>Choisissez <strong>Exporter vos informations</strong> (ou <strong>Télécharger vos informations</strong>), créez un export et sélectionnez votre profil Instagram.</li>
+    <li>Choisissez l’export vers votre appareil. Dans les informations à inclure, sélectionnez <strong>Abonnés et abonnements</strong>. Réglez la période sur <strong>Depuis le début</strong> et choisissez <strong>JSON</strong> ou <strong>HTML</strong>.</li>
+    <li>Lancez l’export. Quand Instagram vous avertit qu’il est prêt, revenez sur la même page pour télécharger le ZIP, puis décompressez-le.</li>
+    <li>Cliquez sur <strong>Ouvrir le dossier Instagram</strong> et sélectionnez le dossier décompressé. En import manuel, cherchez le dossier <code>followers_and_following</code> et sélectionnez tous les fichiers <code>followers_*</code> ainsi que le fichier <code>following</code> dans leurs champs respectifs.</li>
+  </ol>
+  <p><a href="https://help.instagram.com/181231772500920/" target="_blank" rel="noopener noreferrer">Consulter l’aide officielle Instagram</a></p>
+</details>
+</section>
+<section id="analysis" hidden>
+<dl class="stats">
+<div><dt>Abonnés</dt><dd id="total-followers"></dd></div>
+<div><dt>Abonnements</dt><dd id="total-following"></dd></div>
+<div><dt>Réciproques</dt><dd id="total-mutual"></dd></div>
+</dl>
+<div class="panel">
+<h2>Résultats</h2>
+<div class="bar switch" role="group" aria-label="Liste de résultats">
+<button type="button" id="not-back" aria-pressed="true">Ne me suivent pas <span></span></button>
+<button type="button" id="not-followed" aria-pressed="false">Je ne les suis pas <span></span></button>
+</div>
+<div class="bar toolbar"><input id="search" type="search" placeholder="Rechercher un pseudo" aria-label="Rechercher un pseudo"><button type="button" id="export">Exporter la liste en CSV</button></div>
+<p id="empty" hidden></p><ul id="accounts"></ul>
+<div class="bar" id="pages" hidden><button id="previous" type="button">Précédent</button><span id="page" aria-live="polite"></span><button id="next" type="button">Suivant</button></div>
+</div>
+</section>
+<p id="feedback" class="toast" role="status" hidden></p>
+</main>
+<dialog id="ignored-dialog" aria-labelledby="ignored-title">
+<form class="bar dialog-head" method="dialog"><h2 id="ignored-title">Pseudos ignorés</h2><button>Fermer</button></form>
+<p>Les comptes ignorés sont masqués dans les résultats.</p>
+<form id="legacy-form"><label>Importer une ancienne liste <input id="legacy" type="file" required accept=".txt,text/plain"></label><button>Importer</button></form>
+<p id="ignored-status" role="status"></p>
+<ul id="ignored-list"></ul>
+</dialog>
+</body>
+</html>
